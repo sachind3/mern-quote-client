@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.235;
+  background: #f1f5f9;
+}
+a {
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+header {
+  background-color: #2876f9;
+  background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
+  padding: 0.5rem 0;
+}
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+}
+.navbar a {
+  color: inherit;
+  text-decoration: none;
+}
+.navbar button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+.main-section {
+  padding: 1.5rem 0;
+}
+.authForm {
+  padding: 1rem;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.quoteForm {
+  padding: 1rem;
+}
+.mb-2 {
+  margin-bottom: 1rem;
+}
+.form-group {
+  position: relative;
+}
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+}
+textarea.form-control {
+  width: 100%;
+  height: 100px;
+  resize: vertical;
+}
+.btn {
+  display: block;
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-dark {
+  background: #232323;
+  color: #fff;
+}
+.btn-danger {
+  background: tomato;
+  color: #fff;
+}
+.btn-outline {
+  border: 1px solid #232323;
+  background: transparent;
+  color: #232323;
+}
+.fs-2 {
+  font-size: 1.5rem;
+}
+.fs-small {
+  font-size: 0.875rem;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-danger {
+  color: tomato;
+}
+
+.successMessageAlert {
+  padding: 0.5rem 0.875rem;
+  border: 1px solid green;
+  background: rgba(0, 128, 0, 0.7);
+  color: #fff;
+}
+.errorMessageAlert {
+  padding: 0.5rem 0.875rem;
+  border: 1px solid red;
+  background: rgba(255, 0, 0, 0.7);
+  color: #fff;
+}
+.infoMessageAlert {
+  padding: 0.5rem 0.875rem;
+  border: 1px solid skyblue;
+  background: rgba(135, 207, 235, 0.7);
+}
+
+.qItem {
+  background: #fff;
+  border: #ccc;
+  padding: 1rem;
+}
+.qItem a {
+  color: inherit;
+  text-decoration: none;
+}
+.qItem h4 {
+  font-size: 1.235rem;
+  margin-bottom: 0.5rem;
+}
+.qItem p {
+  margin-bottom: 0.5rem;
+}
+.qItem span {
+  color: #888;
+  font-size: small;
+}
+.detailPage {
+  background: #ffffff;
+  border: #ccc;
+  padding: 1rem;
+  color: inherit;
+}
+.detailPage h4 {
+  font-size: 1.235rem;
+}
+.detailPage p {
+  margin-bottom: 0.5rem;
+}
+.detailPage span {
+  color: #888;
+  font-size: small;
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.page404 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.page404 h1 {
+  font-size: 25vw;
+  line-height: 1;
+}
+.page404 a {
+  width: auto;
+  text-decoration: none;
+}
