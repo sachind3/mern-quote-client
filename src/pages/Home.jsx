@@ -7,6 +7,7 @@ import LazyQuoteItem from "../components/lazy/LazyQuoteItem";
 
 const Home = () => {
   const { isLoading, quotes } = useSelector((state) => state.quote);
+  console.log(quotes);
   if (isLoading) {
     return (
       <div>

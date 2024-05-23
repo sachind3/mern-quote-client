@@ -36,10 +36,12 @@ const App = () => {
   useEffect(() => {
     if (token) {
       dispatch(actionGetUserInfo());
-      dispatch(actionGetAllQuotes());
       dispatch(actionGetMyQuotes());
     }
   }, [token, dispatch]);
+  useEffect(() => {
+    dispatch(actionGetAllQuotes());
+  }, [dispatch]);
   return (
     <Routes>
       <Route element={<Layout />}>
