@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
-import { PiGooglePhotosLogoBold } from "react-icons/pi";
+import { FaRegUser } from "react-icons/fa";
+import { GiOvermind } from "react-icons/gi";
+import { MdLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { actionLogout } from "../redux/features/userSlice";
 
 const Header = () => {
@@ -13,15 +15,19 @@ const Header = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <PiGooglePhotosLogoBold color="white" size={30} />
+          <GiOvermind color="white" size={30} />
         </Link>
         <div className="navbar">
           {user ? (
             <>
               <Link to="/quote/create">Add a quote</Link>
               <Link to="/quote/myquotes">My quotes</Link>
-              <Link to="/user/profile">{user.name}</Link>
-              <button onClick={handleLogout}>Logout</button>
+              <Link to="/user/profile">
+                <FaRegUser />
+              </Link>
+              <button onClick={handleLogout}>
+                <MdLogout />
+              </button>
             </>
           ) : (
             <Link to="/user/login">Login</Link>

@@ -1,12 +1,26 @@
+import React from "react";
 import { useSelector } from "react-redux";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Link } from "react-router-dom";
 import QuoteItem from "../../components/QuoteItem";
+import LazyQuoteItem from "../../components/lazy/LazyQuoteItem";
 
 const MyQuotes = () => {
   const { isLoading, userQuotes } = useSelector((state) => state.quote);
   if (isLoading) {
-    return <div>...loading</div>;
+    return (
+      <div>
+        <ResponsiveMasonry>
+          <Masonry gutter="1rem">
+            {Array.from({ length: 10 }).map((_, index) => (
+              <React.Fragment key={index}>
+                <LazyQuoteItem />
+              </React.Fragment>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
+      </div>
+    );
   }
   return (
     <div>

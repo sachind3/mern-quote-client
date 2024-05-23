@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+  font-size: 16px;
+  height: 100%;
+}
+@media only screen and (max-width: 420px) {
+  :root {
+    font-size: 14px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +17,16 @@
 body {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
-  font-size: 16px;
+  font-size: 1rem;
   color: #333333;
   line-height: 1.235;
   background: #f1f5f9;
+  height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 a {
   color: inherit;
@@ -25,8 +40,10 @@ input, select, textarea, button {
 }
 header {
   background-color: #2876f9;
-  background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
   padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 111;
 }
 .container {
   max-width: 1170px;
@@ -150,7 +167,7 @@ textarea.form-control {
 
 .qItem {
   background: #fff;
-  border: #ccc;
+  border: 1px solid #eee;
   padding: 1rem;
 }
 .qItem a {
@@ -202,4 +219,50 @@ textarea.form-control {
 .page404 a {
   width: auto;
   text-decoration: none;
+}
+.loading_qt {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.shimmer {
+  width: 100%;
+  height: 1rem;
+  background: #e4e4e4;
+}
+.shimmer-title {
+  height: 1rem;
+  background: linear-gradient(
+        to right,
+        #e0e0e0 0%,
+        #f0f0f0 20%,
+        #e0e0e0 40%,
+        #e0e0e0 100%
+    );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+.shimmer-text {
+  height: 0.5rem;
+  background: linear-gradient(
+        to right,
+        #e0e0e0 0%,
+        #f0f0f0 20%,
+        #e0e0e0 40%,
+        #e0e0e0 100%
+    );
+    background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+@keyframes shimmer {
+  0% {
+      background-position: -200% 0;
+  }
+  100% {
+      background-position: 200% 0;
+  }
+}
+footer {
+  padding: 0.5rem 0;
+  margin-top: auto;
 }

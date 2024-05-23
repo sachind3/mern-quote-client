@@ -19,7 +19,7 @@ const QuoteItem = ({ data, actions }) => {
   return (
     <div className="qItem">
       <Link to={`/quote/detail/${data._id}`}>
-        <h4>{data.title}</h4>
+        <h4 title={data.title}>{data.title}</h4>
         <p>{data.description}</p>
         <h5>{data.author.name}</h5>
         <span>{moment(new Date(data._createdAt)).fromNow()}</span>
