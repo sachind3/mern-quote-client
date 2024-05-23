@@ -97,7 +97,7 @@ const ForgotPassword = () => {
           )}
         </div>
         <button type="submit" className="btn btn-dark">
-          Sign In
+          Submit
         </button>
       </form>
       <div className="text-center">

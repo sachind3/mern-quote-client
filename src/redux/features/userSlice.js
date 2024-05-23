@@ -52,7 +52,7 @@ export const actionResetPassword = createAsyncThunk(
   "user/actionResetPassword",
   async ({ token, password }, { rejectWithValue }) => {
     try {
-      console.log(token, password);
+      //console.log(token, password);
       const API = getAPI(token);
       const response = await API.post("/user/resetPassword", {
         password: password,
