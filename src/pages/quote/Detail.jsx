@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { actionGetSingleQuote } from "../../redux/features/quoteSlice";
 import moment from "moment";
+import LazyQuoteItem from "../../components/lazy/LazyQuoteItem";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,11 @@ const Detail = () => {
     }
   }, [dispatch, id]);
   if (loading) {
-    return <div>loading ...</div>;
+    return (
+      <div>
+        <LazyQuoteItem />
+      </div>
+    );
   }
   if (singleQuote) {
     return (
