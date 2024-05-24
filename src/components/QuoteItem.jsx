@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
 import moment from "moment";
-import { useDispatch } from "react-redux";
-import { actionDeleteQuote } from "../redux/features/quoteSlice";
 import toast from "react-hot-toast";
+import { FaRegHeart } from "react-icons/fa";
+import { FaRegShareFromSquare } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { actionDeleteQuote } from "../redux/features/quoteSlice";
 const QuoteItem = ({ data, actions }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
@@ -26,12 +28,20 @@ const QuoteItem = ({ data, actions }) => {
       </Link>
       <Link
         to={`/quote/author/${data.author._id}`}
-        className="text-sm font-semibold"
+        className="text-xs font-semibold"
       >
-        {data.author.name}
+        by {data.author.name}
       </Link>
       <div className="text-xs">
         {moment(new Date(data._createdAt)).fromNow()}
+      </div>
+      <div className="flex gap-4 text-sm pt-3">
+        <div className="flex gap-1 items-center">
+          <FaRegHeart /> Like
+        </div>
+        <div className="flex gap-1 items-center">
+          <FaRegShareFromSquare /> Share
+        </div>
       </div>
       {actions && (
         <div className="flex gap-3 mt-3">
