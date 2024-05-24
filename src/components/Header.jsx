@@ -15,7 +15,7 @@ const Header = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <GiOvermind color="white" size={30} />
+          <GiOvermind color="#F7471B" size={30} />
         </Link>
         <div className="navbar">
           {user ? (
