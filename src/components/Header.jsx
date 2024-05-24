@@ -1,5 +1,4 @@
 import { FaRegUser } from "react-icons/fa";
-import { GiOvermind } from "react-icons/gi";
 import { MdLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,8 +13,8 @@ const Header = () => {
   return (
     <header>
       <div className="container">
-        <Link to="/">
-          <GiOvermind color="#F7471B" size={30} />
+        <Link to="/" className="logo">
+          QuoteHub
         </Link>
         <div className="navbar">
           {user ? (
