@@ -33,13 +33,16 @@ const Header = () => {
 
   return (
     <header className="bg-white/50 backdrop-blur sticky top-0 shadow-sm z-50 border-b border-b-slate-200 ">
-      <div className="max-w-6xl px-4 mx-auto flex items-center justify-between h-12">
-        <Link to="/" className="text-orange-500 font-extrabold text-2xl">
+      <div className="max-w-6xl px-4 mx-auto flex items-center justify-between h-12 gap-3">
+        <Link
+          to="/"
+          className="text-orange-500 font-extrabold text-xl md:text-2xl"
+        >
           <span className="text-amber-500">Quote</span>Hub
         </Link>
 
         <div className="flex items-center gap-3">
-          <div className="w-80 relative">
+          <div className="md:w-80 relative">
             <input
               type="text"
               className="form-control !text-xs"
