@@ -23,11 +23,16 @@ const QuoteItem = ({ data, actions }) => {
           {data.title}
         </h4>
         <p className="text-sm mb-1">{data.description}</p>
-        <div className="text-sm font-semibold">{data.author.name}</div>
-        <div className="text-xs">
-          {moment(new Date(data._createdAt)).fromNow()}
-        </div>
       </Link>
+      <Link
+        to={`/quote/author/${data.author._id}`}
+        className="text-sm font-semibold"
+      >
+        {data.author.name}
+      </Link>
+      <div className="text-xs">
+        {moment(new Date(data._createdAt)).fromNow()}
+      </div>
       {actions && (
         <div className="flex gap-3 mt-3">
           <Link to={`/quote/update/${data._id}`} className="btn btn-sm">

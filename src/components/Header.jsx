@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { actionLogout } from "../redux/features/userSlice";
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { BiSearch } from "react-icons/bi";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,18 @@ const Header = () => {
         <Link to="/" className="text-orange-500 font-extrabold text-2xl">
           <span className="text-amber-500">Quote</span>Hub
         </Link>
+
         <div className="flex items-center gap-3">
+          <div className="w-80 relative">
+            <input
+              type="text"
+              className="form-control !text-xs"
+              placeholder="Search"
+            />
+            <button className="absolute right-2 top-2">
+              <BiSearch />
+            </button>
+          </div>
           {user ? (
             <>
               <div

@@ -23,6 +23,7 @@ import {
   actionGetUserInfo,
   actionRefreshToken,
 } from "./redux/features/userSlice";
+import Author from "./pages/quote/Author";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/user/reset/:token" element={<ResetPassword />} />
         <Route path="/user/activate/:token" element={<ActivateEmail />} />
         <Route path="/quote/detail/:id" element={<Detail />} />
+        <Route path="/quote/author/:id" element={<Author />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/quote/create" element={<Create />} />
           <Route path="/quote/update/:id" element={<Update />} />

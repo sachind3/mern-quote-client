@@ -4,6 +4,7 @@ import { getAPI } from "../../utils";
 const initialState = {
   quotes: [],
   userQuotes: [],
+  authorQuotes: null,
   isLoading: false,
   error: null,
 };
@@ -93,6 +94,20 @@ export const actionUpdateQuote = createAsyncThunk(
     }
   }
 );
+export const actionAuthorQuotes = createAsyncThunk(
+  "quote/actionAuthorQuotes",
+  async (id, { rejectWithValue, getState }) => {
+    try {
+      const state = getState();
+      const token = state.user.token;
+      const API = getAPI(token);
+      const response = await API.get(`/quote/author/${id}`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
 
 export const quoteSlice = createSlice({
   name: "quote",
@@ -171,6 +186,17 @@ export const quoteSlice = createSlice({
         });
       })
       .addCase(actionUpdateQuote.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload || action.error.message;
+      })
+      .addCase(actionAuthorQuotes.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(actionAuthorQuotes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.authorQuotes = action.payload.result;
+      })
+      .addCase(actionAuthorQuotes.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload || action.error.message;
       });
