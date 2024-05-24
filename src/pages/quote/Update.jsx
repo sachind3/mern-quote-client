@@ -72,10 +72,10 @@ const Update = () => {
     return <div className="errorMessageAlert">Quote is not found!</div>;
   }
   return (
-    <div className="quoteForm">
-      <h3 className="fs-2 mb-2">Update a quote</h3>
-      <form onSubmit={handleSubmit} className="mb-2">
-        <div className="form-group mb-2">
+    <div className="card mx-auto max-w-xl">
+      <h3 className="text-2xl font-semibold mb-3">Update a quote</h3>
+      <form onSubmit={handleSubmit} className="space-y-3">
+        <div className="form-group ">
           <label htmlFor="title" className="form-label">
             Title
           </label>
@@ -90,7 +90,7 @@ const Update = () => {
             <small className="text-danger">{errors.title}</small>
           )}
         </div>
-        <div className="form-group mb-2">
+        <div className="form-group ">
           <label htmlFor="description" className="form-label">
             Description
           </label>
@@ -106,7 +106,7 @@ const Update = () => {
             <small className="text-danger">{errors.description}</small>
           )}
         </div>
-        <button type="submit" className="btn btn-dark">
+        <button type="submit" className="btn w-full">
           Submit
         </button>
       </form>

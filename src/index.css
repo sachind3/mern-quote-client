@@ -1,252 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-size: 16px;
   height: 100%;
-}
-@media only screen and (max-width: 420px) {
-  :root {
-    font-size: 14px;
-  }
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: 0;
-}
-body {
   font-family: "Poppins", sans-serif;
-  font-optical-sizing: auto;
-  font-size: 1rem;
-  color: #333;
-  
-  background: whitesmoke;
-  height: 100%;
 }
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+@layer base {
+  body {
+    @apply text-slate-700 h-full
+  };
 }
-a {
-  color: inherit;
-}
-ul {
-  list-style: none;
-}
-input, select, textarea, button {
-  font-family: inherit;
-  font-size: inherit;
-}
-header {
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 0.5rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 111;
-  backdrop-filter: blur(4px);
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-}
-.logo {
-  font-weight: 900;
-  text-decoration: none;
-  color: #F7471B;
-  font-size: 1.5rem;
-}
-.container {
-  max-width: 1170px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.navbar {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-weight: 500;
-}
-.navbar a {
-  color: inherit;
-  text-decoration: none;
-}
-.navbar button {
-  background: transparent;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-}
-.main-section {
-  padding: 1.5rem 0;
-  position: relative;
-  z-index: 2;
-}
-.authForm {
-  padding: 1rem;
-  max-width: 380px;
-  margin: 0 auto;
-}
-.quoteForm {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
-  border: 1px solid #eee;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-}
-.mb-2 {
-  margin-bottom: 1rem;
-}
-.form-group {
-  position: relative;
-}
-.form-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-.form-control {
-  display: block;
-  width: 100%;
-  border: 1px solid #e2e2e2;
-  padding: 0.5rem 0.875rem;
-  font-size: 0.875rem;
-}
-textarea.form-control {
-  width: 100%;
-  height: 100px;
-  resize: vertical;
-}
-.btn {
-  display: block;
-  width: 100%;
-  border: 1px solid #e2e2e2;
-  padding: 0.5rem 0.875rem;
-  font-size: 0.875rem;
-  cursor: pointer;
-  text-align: center;
-}
-.btn-dark {
-  background: #232323;
-  color: #fff;
-}
-.btn-danger {
-  background: tomato;
-  color: #fff;
-}
-.btn-outline {
-  border: 1px solid #232323;
-  background: transparent;
-  color: #232323;
-}
-.fs-2 {
-  font-size: 1.5rem;
-}
-.fs-small {
-  font-size: 0.875rem;
-}
-.text-left {
-  text-align: left;
-}
-.text-center {
-  text-align: center;
-}
-.text-right {
-  text-align: right;
-}
-.text-danger {
-  color: tomato;
-}
-
-.successMessageAlert {
-  padding: 0.5rem 0.875rem;
-  border: 1px solid green;
-  background: rgba(0, 128, 0, 0.7);
-  color: #fff;
-}
-.errorMessageAlert {
-  padding: 0.5rem 0.875rem;
-  border: 1px solid red;
-  background: rgba(255, 0, 0, 0.7);
-  color: #fff;
-}
-.infoMessageAlert {
-  padding: 0.5rem 0.875rem;
-  border: 1px solid skyblue;
-  background: rgba(135, 207, 235, 0.7);
-}
-
-.qItem {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
-  border: 1px solid #eee;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-}
-
-.qItem a {
-  color: inherit;
-  text-decoration: none;
-  
-}
-.qItem h4 {
-  font-size: 1.235rem;
-  margin-bottom: 0.5rem;
-}
-.qItem p {
-  margin-bottom: 0.5rem;
-}
-.qItem span {
-  color: #888;
-  font-size: small;
-}
-.detailPage {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
-  border: 1px solid #eee;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-}
-.detailPage h4 {
-  font-size: 1.235rem;
-}
-.detailPage p {
-  margin-bottom: 0.5rem;
-}
-.detailPage span {
-  color: #888;
-  font-size: small;
-}
-.actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.page404 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.page404 h1 {
-  font-size: 25vw;
-  line-height: 1;
-}
-.page404 a {
-  width: auto;
-  text-decoration: none;
-}
-.loading_qt {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+@layer utilities {
+  #root {
+    @apply flex flex-col min-h-full
+  }
+  .form-group {
+    @apply relative
+  }
+  .form-label {
+    @apply text-sm leading-6 font-medium text-slate-600 group-focus-within:text-orange-500 mb-1 inline-block;
+  }
+  .form-control {
+    @apply focus:ring-2 focus:ring-orange-500 focus:outline-none appearance-none w-full leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 px-3 ring-1 ring-slate-200 read-only:bg-gray-100 read-only:opacity-50;
+  }
+  textarea.form-control {
+    @apply w-full h-[100px] resize-y
+  }
+  .btn {
+    @apply bg-orange-600 shadow text-white text-sm leading-6 font-medium py-2 px-3 rounded-lg disabled:opacity-40 text-center inline-block;
+  }
+  .btn-sm {
+    @apply !py-1.5 !px-2 text-xs !rounded leading-4
+  }
+  .card {
+    @apply p-4 border border-slate-100 rounded-lg shadow backdrop-blur bg-white/50
+  }
+  .text-danger {
+    @apply text-red-600
+  }
+  .successMessageAlert {
+    @apply px-3 py-2 border-slate-100 bg-green-600/60 text-white rounded-md
+  }
+  .errorMessageAlert {
+    @apply px-3 py-2 border-slate-100 bg-red-600/60 text-white rounded-md
+  }
+  .infoMessageAlert {
+    @apply px-3 py-2 border-slate-100 bg-blue-600/60 text-white rounded-md
+  }
+  .bg-shape1 {
+    @apply w-96 h-96 rounded-full relative;
+    animation: one 10s infinite;
+  }
+  .bg-shape2 {
+    @apply w-72 h-72 rounded-full relative;
+    animation: two 10s infinite;
+  }
 }
 .shimmer {
   width: 100%;
@@ -285,24 +96,6 @@ textarea.form-control {
       background-position: 200% 0;
   }
 }
-footer {
-  padding: 0.5rem 0;
-  margin-top: auto;
-}
-.bg-shape1 {
-  width: 400px;
-  height: 400px;
-  border-radius: 9999px;
-  position: relative;
-  animation: one 10s infinite;
-}
-.bg-shape2 {
-  width: 300px;
-  height: 300px;
-  border-radius: 9999px;
-  position: relative;
-  animation: two 10s infinite;
-}
 @keyframes one {
   0%{left: 0;top:0;}
   25%{left: -100px;top:70px;}
@@ -316,28 +109,4 @@ footer {
   50%{left: 100px;top: 50px;}
   75%{left: 50px;top: 100px;}
   100%{left: 0;top: 0;}
-}
-.opacity-50 {
-  opacity: 0.5;
-}
-.bg-blur {
-  filter: blur(90px);
-}
-.bg-primary {
-  background-color: rgb(30,0,255);
-}
-.bg-teal {
-  background-color: rgb(255,72,173);
-}
-.bg-purple {
-  background-color: rgb(140,0,215);
-}
-.gradientShape {
-  position: fixed;
-  inset: 0;
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
 }

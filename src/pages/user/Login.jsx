@@ -70,10 +70,10 @@ const Login = () => {
   }, [error]);
 
   return (
-    <div className="authForm">
-      <h3 className="fs-2 mb-2">Login here!</h3>
-      <form onSubmit={handleSubmit} className="mb-2">
-        <div className="form-group mb-2">
+    <div className="card max-w-sm mx-auto mt-4">
+      <h3 className="text-2xl font-semibold mb-3">Login here!</h3>
+      <form onSubmit={handleSubmit} className="space-y-3 mb-2">
+        <div className="form-group ">
           <label htmlFor="email" className="form-label">
             Email
           </label>
@@ -88,7 +88,7 @@ const Login = () => {
             <small className="text-danger">{errors.email}</small>
           )}
         </div>
-        <div className="form-group mb-2">
+        <div className="form-group ">
           <label htmlFor="password" className="form-label">
             Password
           </label>
@@ -103,15 +103,20 @@ const Login = () => {
             <small className="text-danger">{errors.password}</small>
           )}
         </div>
-        <div className="fs-small text-right mb-2">
-          <Link to="/user/forgot">Forgot password</Link>
+        <div className="text-sm text-right ">
+          <Link to="/user/forgot" className="underline">
+            Forgot password
+          </Link>
         </div>
-        <button type="submit" className="btn btn-dark">
+        <button type="submit" className="btn w-full">
           Sign In
         </button>
       </form>
-      <div className="text-center">
-        Don't have an account? <Link to="/user/register">Register here!</Link>
+      <div className="text-center text-sm">
+        Don't have an account?{" "}
+        <Link to="/user/register" className="underline">
+          Register here!
+        </Link>
       </div>
     </div>
   );

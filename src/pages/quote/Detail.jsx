@@ -33,11 +33,13 @@ const Detail = () => {
   }
   if (singleQuote) {
     return (
-      <div className="detailPage">
-        <h4>{singleQuote.title}</h4>
-        <p>{singleQuote.description}</p>
-        <h5>{singleQuote.author.name}</h5>
-        <span>{moment(new Date(singleQuote._createdAt)).fromNow()}</span>
+      <div className="card">
+        <h4 className="text-xl font-semibold mb-1">{singleQuote.title}</h4>
+        <p className="mb-1">{singleQuote.description}</p>
+        <div className="text-sm font-semibold">{singleQuote.author.name}</div>
+        <div className="text-xs">
+          {moment(new Date(singleQuote._createdAt)).fromNow()}
+        </div>
       </div>
     );
   }

@@ -17,19 +17,23 @@ const QuoteItem = ({ data, actions }) => {
       });
   };
   return (
-    <div className="qItem">
+    <div className="card">
       <Link to={`/quote/detail/${data._id}`}>
-        <h4 title={data.title}>{data.title}</h4>
-        <p>{data.description}</p>
-        <h5>{data.author.name}</h5>
-        <span>{moment(new Date(data._createdAt)).fromNow()}</span>
+        <h4 className="font-semibold mb-1 leading-5" title={data.title}>
+          {data.title}
+        </h4>
+        <p className="text-sm mb-1">{data.description}</p>
+        <div className="text-sm font-semibold">{data.author.name}</div>
+        <div className="text-xs">
+          {moment(new Date(data._createdAt)).fromNow()}
+        </div>
       </Link>
       {actions && (
-        <div className="actions">
-          <Link to={`/quote/update/${data._id}`} className="btn btn-outline">
+        <div className="flex gap-3 mt-3">
+          <Link to={`/quote/update/${data._id}`} className="btn btn-sm">
             Update
           </Link>
-          <button className="btn btn-danger" onClick={handleDelete}>
+          <button className="btn btn-sm !bg-red-600" onClick={handleDelete}>
             Delete
           </button>
         </div>

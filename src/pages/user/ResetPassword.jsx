@@ -51,10 +51,10 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="authForm">
-      <h3 className="fs-2 mb-2">Reset password</h3>
-      <form onSubmit={handleSubmit} className="mb-2">
-        <div className="form-group mb-2">
+    <div className="card max-w-sm mx-auto mt-4">
+      <h3 className="text-2xl font-semibold mb-3">Reset password</h3>
+      <form onSubmit={handleSubmit} className="space-y-3 my-3">
+        <div className="form-group">
           <label htmlFor="password" className="form-label">
             Password
           </label>
@@ -69,7 +69,7 @@ const ResetPassword = () => {
             <small className="text-danger">{errors.password}</small>
           )}
         </div>
-        <button type="submit" className="btn btn-dark">
+        <button type="submit" className="btn w-full">
           Submit
         </button>
       </form>

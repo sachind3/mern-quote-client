@@ -83,15 +83,15 @@ const Register = () => {
     }
   }, [error]);
   return (
-    <div className="authForm">
-      <h3 className="fs-2 mb-2">Register here!</h3>
+    <div className="card max-w-sm mx-auto mt-4">
+      <h3 className="text-2xl font-semibold mb-3">Register here!</h3>
       {messageShow && (
-        <div className="successMessageAlert mb-2">
+        <div className="successMessageAlert">
           Register success! Please activate your email to start.
         </div>
       )}
-      <form onSubmit={handleSubmit} className="mb-2">
-        <div className="form-group mb-2">
+      <form onSubmit={handleSubmit} className="space-y-3 mb-2">
+        <div className="form-group">
           <label htmlFor="name" className="form-label">
             Full Name
           </label>
@@ -104,7 +104,7 @@ const Register = () => {
           />
           {errors.name && <small className="text-danger">{errors.name}</small>}
         </div>
-        <div className="form-group mb-2">
+        <div className="form-group">
           <label htmlFor="email" className="form-label">
             Email
           </label>
@@ -119,7 +119,7 @@ const Register = () => {
             <small className="text-danger">{errors.email}</small>
           )}
         </div>
-        <div className="form-group mb-2">
+        <div className="form-group">
           <label htmlFor="password" className="form-label">
             Password
           </label>
@@ -134,12 +134,15 @@ const Register = () => {
             <small className="text-danger">{errors.password}</small>
           )}
         </div>
-        <button type="submit" className="btn btn-dark">
+        <button type="submit" className="btn w-full">
           Sign Up
         </button>
       </form>
-      <div className="text-center">
-        Already have an account? <Link to="/user/login">Login here!</Link>
+      <div className="text-center text-sm">
+        Already have an account?{" "}
+        <Link to="/user/login" className="underline">
+          Login here!
+        </Link>
       </div>
     </div>
   );

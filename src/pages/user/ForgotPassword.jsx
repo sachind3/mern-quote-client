@@ -66,22 +66,18 @@ const ForgotPassword = () => {
     }
   }, [error]);
   return (
-    <div className="authForm">
-      <h3 className="fs-2 mb-2">Forgot Password!</h3>
-      <p className="fs-small mb-2">
+    <div className="card max-w-sm mx-auto mt-4">
+      <h3 className="text-2xl font-semibold mb-3">Forgot Password!</h3>
+      <p className="text-sm">
         Enter the email address associsated with your account and we'll send you
         a link to reset your password.
       </p>
-      {errMessage && (
-        <div className="errorMessageAlert fs-small mb-2">{errMessage}</div>
-      )}
+      {errMessage && <div className="errorMessageAlert">{errMessage}</div>}
       {successMessage && (
-        <div className="successMessageAlert fs-small mb-2">
-          {successMessage}
-        </div>
+        <div className="successMessageAlert">{successMessage}</div>
       )}
-      <form onSubmit={handleSubmit} className="mb-2">
-        <div className="form-group mb-2">
+      <form onSubmit={handleSubmit} className="space-y-3 my-3">
+        <div className="form-group ">
           <label htmlFor="email" className="form-label">
             Email
           </label>
@@ -96,12 +92,15 @@ const ForgotPassword = () => {
             <small className="text-danger">{errors.email}</small>
           )}
         </div>
-        <button type="submit" className="btn btn-dark">
+        <button type="submit" className="btn w-full">
           Submit
         </button>
       </form>
-      <div className="text-center">
-        Don't have an account? <Link to="/user/register">Register here!</Link>
+      <div className="text-center text-sm">
+        Don't have an account?{" "}
+        <Link to="/user/register" className="underline">
+          Register here!
+        </Link>
       </div>
     </div>
   );

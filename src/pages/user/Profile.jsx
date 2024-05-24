@@ -5,8 +5,8 @@ const Profile = () => {
   const { userQuotes } = useSelector((state) => state.quote);
   console.log(user);
   return (
-    <div className="detailPage">
-      <h2>{user.name}</h2>
+    <div className="card">
+      <h2 className="text-xl font-semibold">{user.name}</h2>
       <h3 className="mb-2">{user.email}</h3>
       <div>
         <div className="infoMessageAlert">

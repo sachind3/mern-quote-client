@@ -11,12 +11,12 @@ const Header = () => {
     dispatch(actionLogout());
   };
   return (
-    <header>
-      <div className="container">
-        <Link to="/" className="logo">
-          QuoteHub
+    <header className="bg-white/50 backdrop-blur sticky top-0 shadow-sm py-2 z-50 border-b border-b-slate-200">
+      <div className="max-w-6xl px-4 mx-auto flex items-center justify-between">
+        <Link to="/" className="text-orange-500 font-extrabold text-2xl">
+          <span className="text-amber-500">Quote</span>Hub
         </Link>
-        <div className="navbar">
+        <div className="flex items-center gap-3">
           {user ? (
             <>
               <Link to="/quote/create">Add a quote</Link>
