@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
 const Layout = () => {
   return (
@@ -21,6 +22,7 @@ const Layout = () => {
       </section>
       <Footer />
       <SpeedInsights />
+      <Analytics />
     </>
   );
 };
