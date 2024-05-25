@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const Layout = () => {
   return (
@@ -19,6 +20,7 @@ const Layout = () => {
         </div>
       </section>
       <Footer />
+      <SpeedInsights />
     </>
   );
 };
