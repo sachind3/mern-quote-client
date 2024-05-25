@@ -52,15 +52,17 @@
   }
   .bg-shape1 {
     @apply w-96 h-96 rounded-full relative;
-    filter: blur(90px);
     -webkit-filter: blur(90px); /* Safari */
+    filter: blur(90px);
+    -webkit-animation: one 10s infinite;
     animation: one 10s infinite;
   }
   .bg-shape2 {
     @apply w-72 h-72 rounded-full relative;
-    animation: two 10s infinite;
     -webkit-filter: blur(90px); /* Safari */
     filter: blur(90px);
+    -webkit-animation: two 10s infinite;
+    animation: two 10s infinite;
   }
 }
 .shimmer {
