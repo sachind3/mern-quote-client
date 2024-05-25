@@ -1,27 +1,16 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { useParams } from "react-router-dom";
 import QuoteItem from "../../components/QuoteItem";
 import LazyQuoteItem from "../../components/lazy/LazyQuoteItem";
-import { actionAuthorQuotes } from "../../redux/features/quoteSlice";
 
-const Author = () => {
-  const dispatch = useDispatch();
-  const { isLoading, authorQuotes } = useSelector((state) => state.quote);
+const Saved = () => {
+  const { isLoading, saved } = useSelector((state) => state.utility);
 
-  const { id } = useParams();
-  useEffect(() => {
-    if (id) {
-      if (authorQuotes?.author._id !== id) {
-        dispatch(actionAuthorQuotes(id));
-      }
-    }
-  }, [id, dispatch, authorQuotes]);
   if (isLoading) {
     return (
-      <>
+      <div>
         <ResponsiveMasonry>
           <Masonry gutter="1rem">
             {Array.from({ length: 10 }).map((_, index) => (
@@ -31,20 +20,21 @@ const Author = () => {
             ))}
           </Masonry>
         </ResponsiveMasonry>
-      </>
+      </div>
     );
   }
+
   return (
     <>
       <h4 className="text-xl font-semibold mb-2">
-        Author : {authorQuotes?.author.name}
+        Saved quotes : {saved.length}
       </h4>
-      {authorQuotes?.quotes.length ? (
+      {saved.length ? (
         <>
           <AnimatePresence>
             <ResponsiveMasonry>
               <Masonry gutter="1rem">
-                {authorQuotes.quotes.map((qt) => (
+                {saved.map((qt) => (
                   <motion.div
                     key={qt._id}
                     initial={{ opacity: 0, y: 20 }}
@@ -52,7 +42,7 @@ const Author = () => {
                     exit={{ opacity: 0, y: 20 }}
                     transition={{
                       duration: 0.3,
-                      delay: authorQuotes.quotes.indexOf(qt) * 0.1,
+                      delay: saved.indexOf(qt) * 0.1,
                     }}
                   >
                     <QuoteItem key={qt._id} data={qt} />
@@ -68,4 +58,5 @@ const Author = () => {
     </>
   );
 };
-export default Author;
+
+export default Saved;

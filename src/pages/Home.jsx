@@ -8,7 +8,6 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const Home = () => {
   const { isLoading, quotes } = useSelector((state) => state.quote);
-  console.log(quotes);
   if (isLoading) {
     return (
       <div>

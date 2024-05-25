@@ -1,14 +1,17 @@
 import { FaRegUser } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { actionLogout } from "../redux/features/userSlice";
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { BiSearch } from "react-icons/bi";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const { user } = useSelector((state) => state.user);
 
@@ -16,6 +19,16 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(actionLogout());
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (query.length < 5) {
+      toast.error("Please enter a more than 4 characters");
+      return false;
+    }
+    navigate(`/quote/search?query=${query}`);
+    setQuery("");
   };
 
   const handleClickOutside = (event) => {
@@ -32,7 +45,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="bg-white/50 backdrop-blur sticky top-0 shadow-sm z-50 border-b border-b-slate-200 ">
+    <header className="bg-white/70 backdrop-blur sticky top-0 shadow-sm z-50 border-b border-b-slate-200 ">
       <div className="max-w-6xl px-4 mx-auto flex items-center justify-between h-12 gap-3">
         <Link
           to="/"
@@ -42,16 +55,18 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center gap-3">
-          <div className="md:w-80 relative">
+          <form onSubmit={handleSubmit} className="md:w-80 relative">
             <input
               type="text"
               className="form-control !text-xs"
               placeholder="Search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
-            <button className="absolute right-2 top-2">
+            <button type="submit" className="absolute right-2 top-2">
               <BiSearch />
             </button>
-          </div>
+          </form>
           {user ? (
             <>
               <div
@@ -77,6 +92,7 @@ const Header = () => {
                       </Link>
                       <Link to="/quote/myquotes">My Quotes</Link>
                       <Link to="/quote/create">Add a quote</Link>
+                      <Link to="/quote/saved">Saved quotes</Link>
                       <button
                         onClick={handleLogout}
                         className="flex gap-2 items-center text-red-600"

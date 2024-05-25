@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { actionGetSingleQuote } from "../../redux/features/quoteSlice";
 import moment from "moment";
 import LazyQuoteItem from "../../components/lazy/LazyQuoteItem";
@@ -36,7 +36,12 @@ const Detail = () => {
       <div className="card">
         <h4 className="text-xl font-semibold mb-1">{singleQuote.title}</h4>
         <p className="mb-1">{singleQuote.description}</p>
-        <div className="text-sm font-semibold">{singleQuote.author.name}</div>
+        <Link
+          to={`/quote/author/${singleQuote.author._id}`}
+          className="text-sm font-semibold"
+        >
+          by {singleQuote.author.name}
+        </Link>
         <div className="text-xs">
           {moment(new Date(singleQuote._createdAt)).fromNow()}
         </div>

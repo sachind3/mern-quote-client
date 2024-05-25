@@ -1,9 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getAPI } from "../../utils";
+import { actionLikeQuote } from "./utilitySlice";
+import { actionLogout } from "./userSlice";
 
 const initialState = {
   quotes: [],
   userQuotes: [],
+  searchQuotes: [],
   authorQuotes: null,
   isLoading: false,
   error: null,
@@ -94,14 +97,26 @@ export const actionUpdateQuote = createAsyncThunk(
     }
   }
 );
+
 export const actionAuthorQuotes = createAsyncThunk(
   "quote/actionAuthorQuotes",
   async (id, { rejectWithValue, getState }) => {
     try {
-      const state = getState();
-      const token = state.user.token;
-      const API = getAPI(token);
+      const API = getAPI();
       const response = await API.get(`/quote/author/${id}`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const actionSearchQuotes = createAsyncThunk(
+  "quote/actionSearchQuotes",
+  async (query, { rejectWithValue }) => {
+    try {
+      const API = getAPI();
+      const response = await API.get(`/quote/search?query=${query}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -144,6 +159,11 @@ export const quoteSlice = createSlice({
         state.isLoading = false;
         state.quotes.unshift(action.payload.result);
         state.userQuotes.unshift(action.payload.result);
+        if (
+          state.authorQuotes.author._id === action.payload.result.author._id
+        ) {
+          state.authorQuotes.quotes.unshift(action.payload.result);
+        }
       })
       .addCase(actionCreateQuote.rejected, (state, action) => {
         state.isLoading = false;
@@ -199,6 +219,52 @@ export const quoteSlice = createSlice({
       .addCase(actionAuthorQuotes.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload || action.error.message;
+      })
+      .addCase(actionSearchQuotes.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(actionSearchQuotes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.searchQuotes = action.payload.result;
+      })
+      .addCase(actionSearchQuotes.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload || action.error.message;
+      })
+      .addCase(actionLikeQuote.fulfilled, (state, action) => {
+        const likedQuote = action.payload.data.result;
+        const userId = action.payload.user.user._id;
+        const indexInQuotes = state.quotes.findIndex(
+          (quote) => quote._id === likedQuote._id
+        );
+        const indexInUserQuotes = state.userQuotes.findIndex(
+          (quote) => quote._id === likedQuote._id
+        );
+        if (indexInQuotes !== -1) {
+          if (state.quotes[indexInQuotes].likes.includes(userId)) {
+            state.quotes[indexInQuotes].likes = state.quotes[
+              indexInQuotes
+            ].likes.filter((id) => id !== userId);
+          } else {
+            state.quotes[indexInQuotes].likes.push(userId);
+          }
+        }
+        if (indexInUserQuotes !== -1) {
+          if (state.userQuotes[indexInUserQuotes].likes.includes(userId)) {
+            state.userQuotes[indexInUserQuotes].likes = state.userQuotes[
+              indexInUserQuotes
+            ].likes.filter((id) => id !== userId);
+          } else {
+            state.userQuotes[indexInUserQuotes].likes.push(userId);
+          }
+        }
+      })
+      .addCase(actionLogout.fulfilled, (state, action) => {
+        state.userQuotes = [];
+        state.searchQuotes = [];
+        state.authorQuotes = null;
+        state.isLoading = false;
+        state.error = null;
       });
   },
 });

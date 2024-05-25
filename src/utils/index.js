@@ -15,3 +15,20 @@ export const getAPI = (token) => {
 
   return API;
 };
+
+export const highlightText = (text, query) => {
+  if (query) {
+    const parts = text.split(new RegExp(`(${query})`, "gi"));
+    return parts.map((part, index) =>
+      part.toLowerCase() === query.toLowerCase() ? (
+        <span key={index} className="bg-[yellow]">
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
+  } else {
+    return text;
+  }
+};
