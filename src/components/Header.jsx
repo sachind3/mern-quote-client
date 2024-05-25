@@ -54,11 +54,11 @@ const Header = () => {
           <span className="text-amber-500">Quote</span>Hub
         </Link>
 
-        <div className="flex items-center gap-3">
-          <form onSubmit={handleSubmit} className="md:w-80 relative">
+        <div className="flex items-center gap-3 w-full justify-end">
+          <form onSubmit={handleSubmit} className="md:w-80 w-full relative">
             <input
               type="text"
-              className="form-control !text-xs"
+              className="form-control !text-xs w-full"
               placeholder="Search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}

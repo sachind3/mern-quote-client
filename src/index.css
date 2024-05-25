@@ -52,11 +52,15 @@
   }
   .bg-shape1 {
     @apply w-96 h-96 rounded-full relative;
+    filter: blur(90px);
+    -webkit-filter: blur(90px); /* Safari */
     animation: one 10s infinite;
   }
   .bg-shape2 {
     @apply w-72 h-72 rounded-full relative;
     animation: two 10s infinite;
+    -webkit-filter: blur(90px); /* Safari */
+    filter: blur(90px);
   }
 }
 .shimmer {
@@ -66,6 +70,13 @@
 }
 .shimmer-title {
   height: 1rem;
+  background:  -webkit-linear-gradient(
+        to right,
+        #e0e0e0 0%,
+        #f0f0f0 20%,
+        #e0e0e0 40%,
+        #e0e0e0 100%
+    );
   background: linear-gradient(
         to right,
         #e0e0e0 0%,
@@ -78,6 +89,13 @@
 }
 .shimmer-text {
   height: 0.5rem;
+  background:  -webkit-linear-gradient(
+        to right,
+        #e0e0e0 0%,
+        #f0f0f0 20%,
+        #e0e0e0 40%,
+        #e0e0e0 100%
+    );
   background: linear-gradient(
         to right,
         #e0e0e0 0%,

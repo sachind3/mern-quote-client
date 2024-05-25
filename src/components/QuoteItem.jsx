@@ -11,6 +11,7 @@ import {
 } from "../redux/features/utilitySlice";
 import { highlightText } from "../utils";
 const QuoteItem = ({ data, actions, query }) => {
+  const { user } = useSelector((state) => state.user);
   const { saved, likes } = useSelector((state) => state.utility);
   const dispatch = useDispatch();
 
@@ -30,10 +31,32 @@ const QuoteItem = ({ data, actions, query }) => {
   const isLiked = likes.some((quote) => quote === data._id);
 
   const toggleSave = () => {
-    dispatch(actionSaveQuote(data._id));
+    if (user) {
+      dispatch(actionSaveQuote(data._id));
+    } else {
+      toast.error("Please login to save");
+    }
   };
   const toggleLike = () => {
-    dispatch(actionLikeQuote(data._id));
+    if (user) {
+      dispatch(actionLikeQuote(data._id));
+    } else {
+      toast.error("Please login to like");
+    }
+  };
+  const handleShareClick = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: data.title,
+          text: data.description,
+        })
+        .then(() => console.log("Shared successfully"))
+        .catch((error) => console.error("Error sharing:", error));
+    } else {
+      // Fallback for browsers that don't support the Web Share API
+      alert("Sorry, your browser does not support sharing.");
+    }
   };
   return (
     <div className="card">
@@ -76,7 +99,7 @@ const QuoteItem = ({ data, actions, query }) => {
             </>
           )}
         </button>
-        <button className="flex gap-1 items-center">
+        <button className="flex gap-1 items-center" onClick={handleShareClick}>
           <FaRegShareFromSquare /> Share
         </button>
       </div>
