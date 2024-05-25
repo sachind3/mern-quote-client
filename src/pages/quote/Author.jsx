@@ -38,7 +38,7 @@ const Author = () => {
   return (
     <>
       <Helmet>
-        <title>{authorQuotes?.author.name} | QuoteHub</title>
+        <title>{`${authorQuotes?.author.name}`} | QuoteHub</title>
       </Helmet>
       <h4 className="text-xl font-semibold mb-2">
         Author : {authorQuotes?.author.name}
