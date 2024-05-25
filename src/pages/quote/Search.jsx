@@ -6,6 +6,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import LazyQuoteItem from "../../components/lazy/LazyQuoteItem";
 import { AnimatePresence, motion } from "framer-motion";
 import QuoteItem from "../../components/QuoteItem";
+import { Helmet } from "react-helmet";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -38,6 +39,9 @@ const Search = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Search by {query} | QuoteHub</title>
+      </Helmet>
       <h4 className="text-xl font-semibold mb-2">Search : {query}</h4>
       <div>
         {searchQuotes.length ? (

@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import QuoteItem from "../../components/QuoteItem";
 import LazyQuoteItem from "../../components/lazy/LazyQuoteItem";
 import { actionAuthorQuotes } from "../../redux/features/quoteSlice";
+import { Helmet } from "react-helmet";
 
 const Author = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ const Author = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>{authorQuotes?.author.name} | QuoteHub</title>
+      </Helmet>
       <h4 className="text-xl font-semibold mb-2">
         Author : {authorQuotes?.author.name}
       </h4>

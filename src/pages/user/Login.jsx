@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { actionLogin } from "../../redux/features/userSlice";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -70,55 +71,60 @@ const Login = () => {
   }, [error]);
 
   return (
-    <div className="card max-w-sm mx-auto mt-4">
-      <h3 className="text-2xl font-semibold mb-3">Login here!</h3>
-      <form onSubmit={handleSubmit} className="space-y-3 mb-2">
-        <div className="form-group ">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="form-control"
-            value={info.email}
-            onChange={(e) => setInfo({ ...info, email: e.target.value })}
-          />
-          {errors.email && (
-            <small className="text-danger">{errors.email}</small>
-          )}
-        </div>
-        <div className="form-group ">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="form-control"
-            value={info.password}
-            onChange={(e) => setInfo({ ...info, password: e.target.value })}
-          />
-          {errors.password && (
-            <small className="text-danger">{errors.password}</small>
-          )}
-        </div>
-        <div className="text-sm text-right ">
-          <Link to="/user/forgot" className="underline">
-            Forgot password
+    <>
+      <Helmet>
+        <title>Login | QuoteHub</title>
+      </Helmet>
+      <div className="card max-w-sm mx-auto mt-4">
+        <h3 className="text-2xl font-semibold mb-3">Login here!</h3>
+        <form onSubmit={handleSubmit} className="space-y-3 mb-2">
+          <div className="form-group ">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="form-control"
+              value={info.email}
+              onChange={(e) => setInfo({ ...info, email: e.target.value })}
+            />
+            {errors.email && (
+              <small className="text-danger">{errors.email}</small>
+            )}
+          </div>
+          <div className="form-group ">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="form-control"
+              value={info.password}
+              onChange={(e) => setInfo({ ...info, password: e.target.value })}
+            />
+            {errors.password && (
+              <small className="text-danger">{errors.password}</small>
+            )}
+          </div>
+          <div className="text-sm text-right ">
+            <Link to="/user/forgot" className="underline">
+              Forgot password
+            </Link>
+          </div>
+          <button type="submit" className="btn w-full">
+            Sign In
+          </button>
+        </form>
+        <div className="text-center text-sm">
+          Don't have an account?{" "}
+          <Link to="/user/register" className="underline">
+            Register here!
           </Link>
         </div>
-        <button type="submit" className="btn w-full">
-          Sign In
-        </button>
-      </form>
-      <div className="text-center text-sm">
-        Don't have an account?{" "}
-        <Link to="/user/register" className="underline">
-          Register here!
-        </Link>
       </div>
-    </div>
+    </>
   );
 };
 export default Login;

@@ -49,7 +49,8 @@ const QuoteItem = ({ data, actions, query }) => {
       navigator
         .share({
           title: data.title,
-          text: data.description,
+          text: data.title,
+          url: `${window.location.origin}/quote/detail/${data._id}`,
         })
         .then(() => console.log("Shared successfully"))
         .catch((error) => console.error("Error sharing:", error));
