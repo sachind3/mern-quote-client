@@ -160,11 +160,14 @@ export const quoteSlice = createSlice({
         state.quotes.unshift(action.payload.result);
         state.userQuotes.unshift(action.payload.result);
         if (
+          state.authorQuotes &&
+          state.authorQuotes.author &&
           state.authorQuotes.author._id === action.payload.result.author._id
         ) {
           state.authorQuotes.quotes.unshift(action.payload.result);
         }
       })
+
       .addCase(actionCreateQuote.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload || action.error.message;
