@@ -78,7 +78,7 @@ const QuoteItem = ({ data, actions, query }) => {
       </div>
       <div className="flex gap-4 text-sm pt-3">
         <button className="flex gap-1 items-center" onClick={toggleLike}>
-          {data.likes.length}
+          {data?.likes?.length}
           {isLiked ? (
             <>
               <FaHeart color="red" /> Liked
