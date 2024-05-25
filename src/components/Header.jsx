@@ -85,10 +85,8 @@ const Header = () => {
                       transition={{ duration: 0.2 }}
                     >
                       <Link to="/user/profile">
-                        <div className="line-clamp-1">Sachin Desai</div>
-                        <div className="line-clamp-1 text-xs">
-                          desai.sachin45@gmail.com
-                        </div>
+                        <div className="line-clamp-1">{user.name}</div>
+                        <div className="line-clamp-1 text-xs">{user.email}</div>
                       </Link>
                       <Link to="/quote/myquotes">My Quotes</Link>
                       <Link to="/quote/create">Add a quote</Link>
