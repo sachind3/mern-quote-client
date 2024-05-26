@@ -87,7 +87,10 @@ const Register = () => {
     <>
       <Helmet>
         <title>Register | QuoteHub</title>
-        <link rel="canonical" href={`/user/register`} />
+        <link
+          rel="canonical"
+          href={`https://quote-client.sachindesai.in/user/register`}
+        />
       </Helmet>
       <div className="card max-w-sm mx-auto mt-4">
         <h3 className="text-2xl font-semibold mb-3">Register here!</h3>

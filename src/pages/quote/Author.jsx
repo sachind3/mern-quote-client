@@ -39,7 +39,10 @@ const Author = () => {
     <>
       <Helmet>
         <title>{`${authorQuotes?.author.name}`} | QuoteHub</title>
-        <link rel="canonical" href={`/quote/author/${id}`} />
+        <link
+          rel="canonical"
+          href={`https://quote-client.sachindesai.in/quote/author/${id}`}
+        />
       </Helmet>
       <h4 className="text-xl font-semibold mb-2">
         Author : {authorQuotes?.author.name}

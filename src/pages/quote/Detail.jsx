@@ -38,7 +38,10 @@ const Detail = () => {
         <Helmet>
           <title>{singleQuote.title} | QuoteHub</title>
           <meta name="description" content={singleQuote.description} />
-          <link rel="canonical" href={`/quote/detail/${id}`} />
+          <link
+            rel="canonical"
+            href={`https://quote-client.sachindesai.in/quote/detail/${id}`}
+          />
         </Helmet>
         <div className="card">
           <h4 className="text-xl font-semibold mb-1">{singleQuote.title}</h4>

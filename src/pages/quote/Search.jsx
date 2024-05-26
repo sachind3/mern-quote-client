@@ -41,7 +41,10 @@ const Search = () => {
     <>
       <Helmet>
         <title>Search by {query} | QuoteHub</title>
-        <link rel="canonical" href={`/quote/search?query=${query}`} />
+        <link
+          rel="canonical"
+          href={`https://quote-client.sachindesai.in/quote/search?query=${query}`}
+        />
       </Helmet>
       <h4 className="text-xl font-semibold mb-2">Search : {query}</h4>
       <div>
