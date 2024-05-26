@@ -27,6 +27,13 @@ const Home = () => {
     <>
       {quotes.length ? (
         <>
+          <div className="border border-dotted py-2 mb-3 rounded-md bg-white/50 text-center">
+            <h1 className="font-bold">Manage Your Quotes Seamlessly</h1>
+            <p>
+              Get inspired, share with friends, and let these words of wisdom
+              brighten your day.
+            </p>
+          </div>
           <AnimatePresence>
             <ResponsiveMasonry>
               <Masonry gutter="1rem">
