@@ -7,7 +7,11 @@ const Footer = () => {
         <div className="text-center text-sm">
           &copy; QuoteHub {new Date().getFullYear()} All rights reserved |
           Design & developed by{" "}
-          <Link to="https://github.com/sachind3" target="_blank">
+          <Link
+            to="https://github.com/sachind3"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             SACHIN DESAI
           </Link>
         </div>
