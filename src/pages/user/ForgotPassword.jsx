@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { actionForgotPassword } from "../../redux/features/userSlice";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const ForgotPassword = () => {
   const dispatch = useDispatch();
@@ -70,6 +70,7 @@ const ForgotPassword = () => {
     <>
       <Helmet>
         <title>Register | QuoteHub</title>
+        <link rel="canonical" href={`/user/forgot`} />
       </Helmet>
       <div className="card max-w-sm mx-auto mt-4">
         <h3 className="text-2xl font-semibold mb-3">Forgot Password!</h3>

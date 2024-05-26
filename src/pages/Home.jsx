@@ -1,11 +1,10 @@
+import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { useSelector } from "react-redux";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Link } from "react-router-dom";
 import QuoteItem from "../components/QuoteItem";
 import LazyQuoteItem from "../components/lazy/LazyQuoteItem";
-import { AnimatePresence, motion } from "framer-motion";
-import { Helmet } from "react-helmet";
 
 const Home = () => {
   const { isLoading, quotes } = useSelector((state) => state.quote);
@@ -26,9 +25,6 @@ const Home = () => {
   }
   return (
     <>
-      <Helmet>
-        <title>QuoteHub | MERN app developed by sachin</title>
-      </Helmet>
       {quotes.length ? (
         <>
           <AnimatePresence>

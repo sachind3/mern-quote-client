@@ -1,0 +1,4 @@
+https://quote-client.sachindesai.in/
+https://quote-client.sachindesai.in/quote/detail/id
+https://quote-client.sachindesai.in/user/login
+https://quote-client.sachindesai.in/user/register

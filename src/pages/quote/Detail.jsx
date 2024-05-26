@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { actionGetSingleQuote } from "../../redux/features/quoteSlice";
 import moment from "moment";
 import LazyQuoteItem from "../../components/lazy/LazyQuoteItem";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -38,6 +38,7 @@ const Detail = () => {
         <Helmet>
           <title>{singleQuote.title} | QuoteHub</title>
           <meta name="description" content={singleQuote.description} />
+          <link rel="canonical" href={`/quote/detail/${id}`} />
         </Helmet>
         <div className="card">
           <h4 className="text-xl font-semibold mb-1">{singleQuote.title}</h4>

@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { actionLogin } from "../../redux/features/userSlice";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -74,6 +74,7 @@ const Login = () => {
     <>
       <Helmet>
         <title>Login | QuoteHub</title>
+        <link rel="canonical" href={`/user/login`} />
       </Helmet>
       <div className="card max-w-sm mx-auto mt-4">
         <h3 className="text-2xl font-semibold mb-3">Login here!</h3>
